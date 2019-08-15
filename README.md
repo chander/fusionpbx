@@ -49,8 +49,9 @@ and effort to get things setup properly, so I put together this document in case
 
 Freeswitch will need to be configured to have "Allow" records for the domain you are using - thereby allowing connections from Flowroute directly without authentication:
   1.  Go to Advanced -> Access Controls then click on "domains"
-    1.  Press the "+" button to add a new rule, and proceed to enter in all the CIDR network data (as allow rules) as you added for the PFSense "Flowroute" alias.
-    1.  Alternately, you might be able to set the default for the domain to "allow" (since only the hosts you specified can really access Flowroute through the firewall.)
+      1.  Press the "+" button to add a new rule, and proceed to enter in all the CIDR network data (as allow rules) as you added for the PFSense "Flowroute" alias.
+      1.  Alternately, you might be able to set the default for the domain to "allow" (since only the hosts you specified can really access Flowroute through the firewall.)
+    
   1.  Go to Advanced -> Variables 
   
       * Find "externa_sip_ip" and "internal_sip_ip" and change them to auto-nat
