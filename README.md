@@ -11,7 +11,7 @@ and effort to get things setup properly, so I put together this document in case
 1. Connect to the PFSense Firewall, and process to System->Advanced->Firewall & NAT
   1. Change the "Firewall Optimization Options" to "Conservative"
     * In theory, this might not be required, since FreeSwitch will send periodic INVITEs to ensure NAT connections are kept alive; but I did it anyways.
-  1.  Go to Firewall -> Aliases and add am alias, called "Flowroute" with the following IP addresses/networks:
+  1.  Go to Firewall -> Aliases and add an alias, called "Flowroute" with the following IP addresses/networks:
       * 216.115.69.144/32, 147.75.65.192/28, 34.226.36.32/28, 34.210.91.112/28, 147.75.60.160/28
       * Check with Flowroute for their latest IP address list.
   1.  Go to Firewall -> NAT and add a new TCP/UDP rule that allows inbound packets from alias "Flowroute" on the WAN to the
@@ -53,15 +53,15 @@ Freeswitch will need to be configured to have "Allow" records for the domain you
     
   1.  Go to Advanced -> Variables 
   
-      * Find "externa_sip_ip" and "internal_sip_ip" and change them to auto-nat
+      * Find "external_sip_ip" and "internal_sip_ip" and change them to auto-nat
       * I'm not certain this needs to be done for me, since I don't have any external sip clients, just a gateway, but in theory this
-        should make flowroute realize that you are behind nat and do natty stuff.
+        should make FreeSwitch realize that you are behind nat and do natty stuff.
  
 ## The rest
  
 Now that the network stuff is setup, you can go to Accounts->Gateways and add in a gateway to flowroute; check the interconnection screen on the flowroute site - you should see a single registration (always); if you see multiple, then something might be wrong with your nat setup, causing the nat connection to timeout an have to reconnect.  That's bad.
  
-If inbound calls get routed to your Flowroute configured "failover" number, it's likely that you might have a domain issue - where the access controls are not setup right.
+If inbound calls get routed to your Flowroute configured "failover" number, it's likely that you might have a domain ACL issue - where the access controls are not setup right.
 
 The best way to troubleshoot these issues is to log into your fusionpbx server, start a fs_cli session and type in "sofia loglevel all 9" which will give you a stream of log output that's very verbose.
 
