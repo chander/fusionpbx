@@ -66,6 +66,8 @@ If inbound calls get routed to your Flowroute configured "failover" number, it's
 The best way to troubleshoot these issues is to log into your fusionpbx server, start a fs_cli session and type in "sofia loglevel all 9" which will give you a stream of log output that's very verbose.
 
 
+### Legal stuff
+
 Copyright (c) 2019 Chander Ganesan 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
