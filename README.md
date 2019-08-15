@@ -12,9 +12,8 @@ and effort to get things setup properly, so I put together this document in case
   1. Change the "Firewall Optimization Options" to "Conservative"
     * In theory, this might not be required, since FreeSwitch will send periodic INVITEs to ensure NAT connections are kept alive; but I did it anyways.
   1.  Go to Firewall -> Aliases and add am alias, called "Flowroute" with the following IP addresses/networks:
-  
-    * 216.115.69.144/32, 147.75.65.192/28, 34.226.36.32/28, 34.210.91.112/28, 147.75.60.160/28
-    * Check with Flowroute for their latest IP address list.
+      * 216.115.69.144/32, 147.75.65.192/28, 34.226.36.32/28, 34.210.91.112/28, 147.75.60.160/28
+      * Check with Flowroute for their latest IP address list.
   1.  Go to Firewall -> NAT and add a new TCP/UDP rule that allows inbound packets from alias "Flowroute" on the WAN to the
       IP of the FusionPBX host (note that the host will need a static IP Address.)
       
