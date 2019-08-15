@@ -27,8 +27,8 @@ and effort to get things setup properly, so I put together this document in case
       * Redirect Target IP: Fusionpbx address
       * Redirect Target Port: SIP
       * Description: Flowroute SIP
+      * Ensure the rule (when created) also creates the Firewall Pass-through rule on the WAN.
       
-    * Ensure the rule (when created) also creates the Firewall Pass-through rule on the WAN.
   1.  Add another NAT rule, this one should allow UDP traffic from and port on any source to a destination of "any" with a destination port range of 16384-32768 to route to your Redirect target IP of your FusionPBX server, with a Redirect target port of 16384 (call the rule "Flowroute Direct Audio")
   
       * Interface: WAN
@@ -53,8 +53,7 @@ Freeswitch will need to be configured to have "Allow" records for the domain you
     1.  Alternately, you might be able to set the default for the domain to "allow" (since only the hosts you specified can really access Flowroute through the firewall.)
   1.  Go to Advanced -> Variables 
   
-    * Find "externa_sip_ip" and "internal_sip_ip" and change them to auto-nat
-    
+      * Find "externa_sip_ip" and "internal_sip_ip" and change them to auto-nat
       * I'm not certain this needs to be done for me, since I don't have any external sip clients, just a gateway, but in theory this
         should make flowroute realize that you are behind nat and do natty stuff.
  
