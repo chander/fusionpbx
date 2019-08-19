@@ -39,28 +39,11 @@ and effort to get things setup properly, so I put together this document in case
       * Redirect Target IP: Fusionpbx address
       * Redirect Target Port: 16384
       * Description: Flowroute Direct Audio
+      * Ensure the rule (when created) also creates the Firewall Pass-through rule on the WAN.
+
   
   1.  Go to Firewall -> NAT -> Outbound and switch the mode to "Hybrid"
-  1.  On the same page, add a new Mapping with an interface of WAN, a Source of your FusionPBX IP Address and a port of 5060 for the 
-      source and the destination.
-      
-      * Interface: WAN
-      * Protocol: UDP
-      * Source Port: Leave blank
-      * Destination: Set to Network, "Flowroute"
-      * Destination Ports: 5060
-      * Translation: Interface Address
-      * Port: Leave blank
-      * Static Port: Ensure this is checked
-  1. Add one more rule - this allows inbound RTSP traffic, which flowroute uses for "Direct Audio", it needs to allow traffic from any source address:
-      * Interface: WAN
-      * Protocol: UDP
-      * Source Port: Leave blank
-      * Destination: Set to Network, "Flowroute"
-      * Destination Ports: 16384-32768
-      * Translation: Interface Address
-      * Port: Leave blank
-      * Static Port: Ensure this is checked
+  
       
 ## Setup of FreeSwitch
 
