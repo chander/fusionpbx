@@ -52,8 +52,7 @@ and effort to get things setup properly, so I put together this document in case
       * Translation: Interface Address
       * Port: Leave blank
       * Static Port: Ensure this is checked
-      
-      
+  1. Add one more rule - this allows inbound RTSP traffic, which flowroute uses for "Direct Audio", it needs to allow traffic from any source address:
       * Interface: WAN
       * Protocol: UDP
       * Source Port: Leave blank
